@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import loginSliceReducer from './userSlice.js';
+import { articlesApi } from '../../shared/api/index.js';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    userLogin: loginSliceReducer,
+    user: loginSliceReducer,
+    [articlesApi.reducerPath]: articlesApi.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(articlesApi.middleware),
 });
-
-export default store;

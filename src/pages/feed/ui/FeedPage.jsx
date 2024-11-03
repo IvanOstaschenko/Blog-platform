@@ -1,5 +1,5 @@
-import { Header } from '../../../widgets/header/index.jsx';
+import { Feed } from '../../../entities/feed/index.js';
 
 export function FeedPage() {
-  return <Header />;
+  return <Feed />;
 }
