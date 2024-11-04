@@ -12,16 +12,20 @@ export const Header = () => {
       {location.pathname === '/' ? (
         <Typography variant="h6">Realworld Blog</Typography>
       ) : (
-        <Link to={'/'}>Realworld Blog</Link>
+        <Link to={'/'} className={styles['home-link']}>
+          Realworld Blog
+        </Link>
       )}
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
         {!login && (
           <>
-            <Button variant="signin" underline="none">
+            <Link to="login" className={styles['login-link']}>
               Sign In
-            </Button>
-            <Button variant="signup">Sign Up</Button>
+            </Link>
+            <Link to="registration" className={styles['register-link']}>
+              Sign Up
+            </Link>
           </>
         )}
         {login && (

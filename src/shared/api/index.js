@@ -1,1 +1,1 @@
-export { articlesApi, useGetArticlesQuery } from './articlesApi.js/';
+export { articlesApi, useGetArticlesQuery, useGetArticleQuery } from './articlesApi.js/';

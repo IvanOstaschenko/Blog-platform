@@ -1,3 +1,3 @@
 export function paginationCount(arr, numberOfArticles) {
-  return Math.ceil(numberOfArticles / arr.length);
+  return Math.ceil(numberOfArticles / 20);
 }

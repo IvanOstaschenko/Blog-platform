@@ -1,35 +1,34 @@
 import { Box, Typography } from '@mui/material';
-import styled from './ArticleRow.module.css';
-import { Link } from 'react-router-dom';
+import styled from './ArticleHeader.module.css';
 import { UserPreview } from '../../../shared/ui/userInfo/index.jsx';
 import PropTypes from 'prop-types';
 import { FavoriteArticle } from '../../../features/index.js';
 import { TagList } from '../../../shared/ui/article/index.jsx';
 
-export function ArticleRow({ article }) {
+export function ArticleHeader({ article }) {
   return (
-    <Box className={styled['article-row']}>
+    <Box className={styled.wrapper}>
       <Box>
         <Box className={styled['title-row']}>
-          <Link to={`article/${article.slug}`} className={styled['article-link']}>
+          <Typography variant="h5" sx={{ color: '#1890FF' }}>
             {article.title}
-          </Link>
+          </Typography>
           <FavoriteArticle count={article.favoritesCount} />
         </Box>
         <TagList dataList={article.tagList} />
-        <Typography variant="body2" className={styled['text-preview']}>
-          {article.description}
-        </Typography>
+        <Typography variant="body2">{article.description}</Typography>
       </Box>
-      <UserPreview
-        date={article.createdAt}
-        name={article.author.username}
-        image={article.author.image}
-      />
+      <Box>
+        <UserPreview
+          date={article.createdAt}
+          name={article.author.username}
+          image={article.author.image}
+        />
+      </Box>
     </Box>
   );
 }
 
-ArticleRow.propTypes = {
+ArticleHeader.propTypes = {
   article: PropTypes.object.isRequired,
 };

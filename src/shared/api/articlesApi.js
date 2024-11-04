@@ -7,7 +7,10 @@ export const articlesApi = createApi({
     getArticles: builder.query({
       query: (page) => `articles?offset=${page === 1 ? 0 : (page - 1) * 20}`,
     }),
+    getArticle: builder.query({
+      query: (slug) => `articles/${slug}`,
+    }),
   }),
 });
 
-export const { useGetArticlesQuery } = articlesApi;
+export const { useGetArticlesQuery, useGetArticleQuery } = articlesApi;

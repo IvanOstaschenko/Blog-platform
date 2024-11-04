@@ -1,0 +1,10 @@
+.wrapper{
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+}
+.title-row{
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
