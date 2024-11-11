@@ -8,7 +8,6 @@ import { ArticleHeader } from './ArticleHeader.jsx';
 export function Article({ slug }) {
   const { data, isLoading } = useGetArticleQuery(slug);
   if (isLoading) return <CircularProgress style={{ position: 'fixed', top: '50%', left: '50%' }} />;
-  console.log(data);
   return (
     <Container className={styled['container']}>
       <ArticleHeader article={data.article} />

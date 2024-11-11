@@ -2,18 +2,19 @@ import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
   components: {
-    // Name of the component
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
         root: {
           variants: [
             {
-              props: { variant: 'signin' },
+              props: { variant: 'logout' },
               style: {
+                border: '1px solid #000',
                 borderRadius: '5px',
                 fontSize: '18px',
+                fontWeight: '400',
                 height: '50px',
+                padding: '0',
                 width: '110px',
                 '&:hover': {
                   background: '#000',
