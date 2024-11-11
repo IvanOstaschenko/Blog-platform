@@ -13,10 +13,8 @@ export const Header = () => {
   const log = useSelector((state) => state.auth.token);
   const { data } = useGetCurrentUserQuery(log);
   useEffect(() => {
-    console.log('header QUERY', data);
     const token = localStorage.getItem('token');
     if (token) dispatch(logIn(token));
-    console.log('token', log);
   }, [log]);
   const logOutHandler = () => {
     dispatch(logOut());
@@ -49,7 +47,7 @@ export const Header = () => {
 
             <Link to="/profile" className={styles.profile}>
               {data?.user.username}
-              <Avatar src="./avatar.png" sx={{ width: 46, height: 46 }} />
+              <Avatar src={data?.user.image || './avatar.png'} sx={{ width: 46, height: 46 }} />
             </Link>
             <Button variant="logout" onClick={logOutHandler}>
               Log Out

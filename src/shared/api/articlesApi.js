@@ -34,6 +34,16 @@ export const articlesApi = createApi({
         },
       }),
     }),
+    updateUser: builder.mutation({
+      query: (data) => ({
+        url: 'user',
+        method: 'PUT',
+        headers: {
+          authorization: `Bearer ${data.token}`,
+        },
+        body: data.body,
+      }),
+    }),
   }),
 });
 
@@ -43,4 +53,5 @@ export const {
   useCreateAccountMutation,
   useLoginMutation,
   useGetCurrentUserQuery,
+  useUpdateUserMutation,
 } = articlesApi;
