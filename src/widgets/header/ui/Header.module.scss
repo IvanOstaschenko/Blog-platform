@@ -1,4 +1,4 @@
-.header{
+.header {
   align-items: center;
   background-color: #fff;
   font-family: "Inter", sans-serif;
@@ -7,7 +7,8 @@
   justify-content: space-between;
   padding-inline: 20px;
 }
-.home-link{
+
+.home-link {
   margin: 0;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
@@ -16,10 +17,12 @@
   letter-spacing: 0.0075em;
   text-decoration: none;
 }
-.home-link:hover{
+
+.home-link:hover {
   text-decoration: underline;
 }
-.login-link{
+
+.login-link {
   align-items: center;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -32,11 +35,13 @@
   transition: .3s;
   width: 110px;
 }
-.login-link:hover{
+
+.login-link:hover {
   background-color: #000;
   color: #fff;
 }
-.register-link{
+
+.register-link {
   align-items: center;
   border: 1px solid #52C41A;
   border-radius: 5px;
@@ -49,11 +54,13 @@
   transition: .3s;
   width: 110px;
 }
-.register-link:hover{
+
+.register-link:hover {
   background-color: #52C41A;
   color: white;
 }
-.logout-link{
+
+.logout-link {
   align-items: center;
   border: 1px solid #000;
   border-radius: 5px;
@@ -66,11 +73,13 @@
   transition: .3s;
   width: 110px;
 }
-.logout-link:hover{
+
+.logout-link:hover {
   background-color: #000;
   color: #fff;
 }
-.create-art-link{
+
+.create-art-link {
   align-items: center;
   border: 1px solid #52C41A;
   border-radius: 5px;
@@ -83,18 +92,40 @@
   transition: .3s;
   width: 110px;
 }
-.create-art-link:hover{
+
+.create-art-link:hover {
   background-color: #52C41A;
   color: white;
 }
-.profile{
+
+.profile {
   color: #000;
   display: flex;
   align-items: center;
   gap: 13px;
   font-size: 18px;
   text-decoration: none;
-  &:hover{
+
+  &:hover {
     text-shadow: 0 0 1px #000;
+  }
+}
+
+.new-article {
+  align-items: center;
+  border: 1px solid #52C41A;
+  border-radius: 5px;
+  color: #52C41A;
+  display: flex;
+  font-size: 14px;
+  height: 30px;
+  justify-content: center;
+  padding-inline: 10px;
+  text-decoration: none;
+  transition: .3s;
+
+  &:hover {
+    background: #52C41A;
+    color: #fff;
   }
 }

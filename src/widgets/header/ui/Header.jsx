@@ -1,21 +1,16 @@
 import styles from './Header.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { Avatar, Box, Button, Typography } from '@mui/material';
-import { isLogin } from '../../../shared/utils/isLogin.js';
 import { useGetCurrentUserQuery } from '../../../shared/api/articlesApi.js';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn, logOut } from '../../../app/redux/authSlice.js';
+import { logOut } from '../../../app/redux/authSlice.js';
 
 export const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const log = useSelector((state) => state.auth.token);
-  const { data } = useGetCurrentUserQuery(log);
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) dispatch(logIn(token));
-  }, [log]);
+  const { data } = useGetCurrentUserQuery();
+
   const logOutHandler = () => {
     dispatch(logOut());
     localStorage.removeItem('token');
@@ -31,7 +26,7 @@ export const Header = () => {
       )}
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
-        {!isLogin() && (
+        {!log && (
           <>
             <Link to="/signin" className={styles['login-link']}>
               Sign In
@@ -41,9 +36,11 @@ export const Header = () => {
             </Link>
           </>
         )}
-        {isLogin() && (
+        {log && (
           <>
-            <Button variant="createarticle">Create article</Button>
+            <Link to="/new-article" className={styles['new-article']}>
+              Create article
+            </Link>
 
             <Link to="/profile" className={styles.profile}>
               {data?.user.username}

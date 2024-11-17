@@ -14,7 +14,7 @@ export function ArticleRow({ article }) {
           <Link to={`article/${article.slug}`} className={styled['article-link']}>
             {article.title}
           </Link>
-          <FavoriteArticle count={article.favoritesCount} />
+          <FavoriteArticle count={article.favoritesCount} slug={article.slug} />
         </Box>
         <TagList dataList={article.tagList} />
         <Typography variant="body2" className={styled['text-preview']}>

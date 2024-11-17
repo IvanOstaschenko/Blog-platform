@@ -8,3 +8,19 @@
     display: flex;
     gap: 10px;
 }
+.edit-link{
+    align-items: center;
+    color: #52C41A;
+    display: inline-flex;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid #52C41A;
+    border-radius: 5px;
+    width: 65px;
+    height: 32px;
+    box-sizing: border-box;
+    margin-left: 12px;
+}
+.edit-link:hover{
+    opacity: .7;
+}

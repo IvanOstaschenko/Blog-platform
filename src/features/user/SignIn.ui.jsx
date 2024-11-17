@@ -52,9 +52,9 @@ export function SignInUi() {
   const [loginUser, { data: loginData, error, isSuccess, isError }] = useLoginMutation();
   useEffect(() => {
     if (isSuccess) {
-      localStorage.setItem('token', loginData.user.token);
       dispatch(logIn(loginData.user.token));
-      navigate('/');
+      localStorage.setItem('token', loginData.user.token);
+      navigate('/', { replace: true });
     }
   }, [isSuccess]);
   const submit = async (data) => {

@@ -10,9 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
-import { useUpdateUserMutation } from '../../shared/api/articlesApi.js';
+import { useGetCurrentUserQuery, useUpdateUserMutation } from '../../shared/api/articlesApi.js';
 import { schemaProfile } from './Profile.model.jsx';
-import { useSelector } from 'react-redux';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -36,24 +35,24 @@ const Card = styled(MuiCard)(({ theme }) => ({
 
 export function Profile() {
   const navigate = useNavigate();
-  const log = useSelector((state) => state.auth.token);
+  const { data } = useGetCurrentUserQuery();
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      userName: '',
-      emailAddress: '',
+      userName: data?.user.username || '',
+      emailAddress: data?.user.email || '',
       password: '',
-      image: '',
+      image: data?.user.image || '',
     },
     resolver: yupResolver(schemaProfile),
   });
   const [updateUser, { error, isSuccess }] = useUpdateUserMutation();
   useEffect(() => {
     if (isSuccess) navigate(-1, { replace: true });
-  });
+  }, [isSuccess]);
 
   const submit = async (data) => {
     const userData = {
@@ -64,7 +63,8 @@ export function Profile() {
         image: data.image || null,
       },
     };
-    await updateUser({ body: userData, token: log }).unwrap();
+    console.log(userData);
+    await updateUser(userData).unwrap();
   };
 
   return (

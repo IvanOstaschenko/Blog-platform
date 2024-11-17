@@ -19,6 +19,7 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@reduxjs/toolkit": "^2.2.8",
+    "antd": "^5.22.1",
     "date-fns": "^3.6.0",
     "lodash.debounce": "^4.0.8",
     "markdown-to-jsx": "^7.5.0",
